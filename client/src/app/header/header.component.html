@@ -20,6 +20,9 @@
   </div>
   <div class="header-container__right">
     <ng-container>
+
+      <app-pop-up></app-pop-up>
+
       <div class="cart-counter">{{ cartData.products.length }}</div>
       <button
         nz-button
@@ -33,6 +36,7 @@
         [nzVisible]="dropdownVisible"
         (nzVisibleChange)="toggleDropdown()"
       >
+
         <i
           nz-icon
           nzType="shopping-cart"

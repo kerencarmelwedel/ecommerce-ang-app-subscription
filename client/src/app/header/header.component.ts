@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   cartData: any;
 
   @HostListener('window:resize', ['$event'])
-  getScreenSize(event?) {
+  getScreenSize(event?): void {
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
 
@@ -47,19 +47,19 @@ export class HeaderComponent implements OnInit {
     else this.isLoggedIn = false;
   }
 
-  toggleMenu() {
+  toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  toggleDropdown() {
+  toggleDropdown(): void {
     this.dropdownVisible = !this.dropdownVisible;
   }
 
-  removeProductFromCart(id: number) {
+  removeProductFromCart(id: number): void {
     this._cart.removeProduct(id);
   }
 
-  logout() {
+  logout(): void {
     this._auth.logout();
     this.isMenuOpen = false;
   }

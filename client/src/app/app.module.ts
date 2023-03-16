@@ -35,6 +35,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 registerLocaleData(en);
 
@@ -52,6 +53,7 @@ registerLocaleData(en);
     HeaderComponent,
     FooterComponent,
     ProductCardComponent,
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,
