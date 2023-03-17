@@ -27,4 +27,3 @@ exports.get_subscriptions = async (req, res, next) => {
             res.status(statusCode).send({message}) && next(err);
         });
 };
-

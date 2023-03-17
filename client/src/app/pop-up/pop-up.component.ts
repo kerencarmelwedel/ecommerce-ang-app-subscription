@@ -50,6 +50,8 @@ export class PopUpComponent implements OnInit {
           (res: any) => {
             console.log(res);
             this.loading = false;
+            f.reset();
+            this.closePopUp();
             // console.log('Successfully subscribed!');
           },
           (err) => {

@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
     );
 });
 
-router.post("/subscriptions/submit-form", subscriptionController.create_subscriptions);
+router.post("/submit-form", subscriptionController.create_subscriptions);
 
 
 module.exports = router;

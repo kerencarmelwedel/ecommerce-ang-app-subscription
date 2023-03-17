@@ -16,8 +16,8 @@
       <div class="container-text">
         <h1>Subscribe to our mailing list!</h1>
         <p>Sign up to receive 15% on all of our products on your first purchase.</p>
-        <input type="name" name="name" id="name" placeholder="name" required ngModel>
-        <input type="email" name="email" id="email" placeholder="Email address" required ngModel>
+        <input type="name" name="name" id="name" placeholder="name" required [(ngModel)]="name">
+        <input type="email" name="email" id="email" placeholder="Email address" required [(ngModel)]="email">
         <button data-dismiss="modal" type="submit">Subscribe</button>
         <span>No spams included</span>
       </div>
