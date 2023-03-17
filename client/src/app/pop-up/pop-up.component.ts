@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild, ElementRef, NgModule} from '@angular/core'
 import {HttpClient} from '@angular/common/http';
 import {FormsModule, NgForm} from '@angular/forms';
 import {Subscription} from 'rxjs';
+import {SubscriptionService} from '../services/subscription.service';
 
 @Component({
   selector: 'app-pop-up',
@@ -9,15 +10,12 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./pop-up.component.scss']
 })
 export class PopUpComponent implements OnInit {
+  private loading: boolean;
 
   constructor(
     private http: HttpClient,
-  ) {
-  }
-  // subscription: Subscription = {
-  //   name: '',
-  //   email: ''
-  // };
+    private subscribe: SubscriptionService
+  ) {}
 
   @NgModule({
     imports: [
@@ -44,17 +42,21 @@ export class PopUpComponent implements OnInit {
   }
 
   onSubmit(f: NgForm): void {
-  // this.http.get('/api/subscriptions').subscribe((data) => {
-    this.http.post('/api/submit-form', f.value)
-      .subscribe(
-        (result) => {
-          console.log('Successfully subscribed!');
-        }
-      );
-    // dismiss the modal
-    // this.modalService.dismissAll();
-
-    // console.log('Successfully subscribed!');
-
+    this.loading = true;
+    setTimeout(() => {
+      this.subscribe
+        .submitSubscribe(this.name, this.email)
+        .subscribe(
+          (res: any) => {
+            console.log(res);
+            this.loading = false;
+            // console.log('Successfully subscribed!');
+          },
+          (err) => {
+            console.log(err);
+            this.loading = false;
+          }
+        );
+    }, 750);
   }
 }
